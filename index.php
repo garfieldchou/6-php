@@ -29,6 +29,7 @@
             
             text-align: center;
             margin-top: 200px;
+            width: 450px;
             
         }
 
