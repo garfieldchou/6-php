@@ -32,6 +32,12 @@
             width: 450px;
             
         }
+        
+        input {
+            
+            margin: 20px 0px;
+            
+        }
 
     </style>
     
