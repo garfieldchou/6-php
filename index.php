@@ -40,6 +40,15 @@
     <div class="container">
     
         <h1>What's The Weather?</h1>
+        
+        <form>
+            <div class="form-group">
+                <label for="city">Enter the name of a city.</label>
+                <input type="text" class="form-control" id="city" placeholder="Eg. London, Tokyo">
+            </div>
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
     
     </div>
     
