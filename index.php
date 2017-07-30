@@ -24,6 +24,12 @@
             background: none;
             
         }
+        
+        .container {
+            
+            text-align: center;
+            
+        }
 
     </style>
     
