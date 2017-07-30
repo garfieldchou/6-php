@@ -12,17 +12,29 @@
     <style type="text/css">
     
         html { 
-            background: url(background.jpg) no-repeat center center fixed; 
+            background: url(background.jpeg) no-repeat center center fixed; 
             -webkit-background-size: cover;
             -moz-background-size: cover;
             -o-background-size: cover;
             background-size: cover;
+        }
+        
+        body {
+            
+            background: none;
+            
         }
 
     </style>
     
   </head>
   <body>
+  
+    <div class="container">
+    
+        <h1>What's The Weather?</h1>
+    
+    </div>
     
     <!-- jQuery first, then Tether, then Bootstrap JS. -->
     <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
