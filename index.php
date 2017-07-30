@@ -1,3 +1,15 @@
+<?php
+
+    if ($_GET['city']) {
+        
+        $forcastPage = file_get_contents("http://www.weather-forecast.com/locations/London/forecasts/latest");
+        
+        echo $forcastPage;
+        
+    }
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
