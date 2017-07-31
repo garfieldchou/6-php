@@ -8,7 +8,7 @@
         
         $secondPageArray = explode('</span></span></span>', $pageArray[1]);
         
-        echo $secondPageArray[0];
+        $weather = $secondPageArray[0];
         
     }
 
@@ -72,6 +72,20 @@
 
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
+        
+        <div id="weather">
+        
+            <?php
+            
+                if ($weather) {
+                    
+                    echo '<div class="alert alert-success" role="alert">'.$weather.'</div>';
+                    
+                }
+            
+            ?>
+                    
+        </div>
     
     </div>
     
