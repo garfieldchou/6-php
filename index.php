@@ -2,9 +2,9 @@
 
     if ($_GET['city']) {
         
-        $_GET['city'] = str_replace(" ", "", $_GET['city']);
+        $city = str_replace(" ", "", $_GET['city']);
         
-        $forcastPage = file_get_contents("http://www.weather-forecast.com/locations/".$_GET['city']."/forecasts/latest");
+        $forcastPage = file_get_contents("http://www.weather-forecast.com/locations/".$city."/forecasts/latest");
         
         $pageArray = explode('3 Day Weather Forecast Summary:</b><span class="read-more-small"><span class="read-more-content"> <span class="phrase">', $forcastPage);
         
@@ -75,7 +75,7 @@
         <form>
             <div class="form-group">
                 <label for="city">Enter the name of a city.</label>
-                <input type="text" class="form-control" name="city" id="city" placeholder="Eg. London, Tokyo">
+                <input type="text" class="form-control" name="city" id="city" placeholder="Eg. London, Tokyo" value = "<?php echo $_GET['city']; ?>">
             </div>
 
             <button type="submit" class="btn btn-primary">Submit</button>
