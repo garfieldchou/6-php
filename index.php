@@ -2,7 +2,7 @@
 
     if ($_GET['city']) {
         
-        $forcastPage = file_get_contents("http://www.weather-forecast.com/locations/London/forecasts/latest");
+        $forcastPage = file_get_contents("http://www.weather-forecast.com/locations/".$_GET['city']."/forecasts/latest");
         
         $pageArray = explode('3 Day Weather Forecast Summary:</b><span class="read-more-small"><span class="read-more-content"> <span class="phrase">', $forcastPage);
         
