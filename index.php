@@ -4,7 +4,11 @@
         
         $forcastPage = file_get_contents("http://www.weather-forecast.com/locations/London/forecasts/latest");
         
-        echo $forcastPage;
+        $pageArray = explode('3 Day Weather Forecast Summary:</b><span class="read-more-small"><span class="read-more-content"> <span class="phrase">', $forcastPage);
+        
+        $secondPageArray = explode('</span></span></span>', $pageArray[1]);
+        
+        echo $secondPageArray[0];
         
     }
 
