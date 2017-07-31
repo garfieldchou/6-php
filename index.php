@@ -44,7 +44,7 @@
         .container {
             
             text-align: center;
-            margin-top: 200px;
+            margin-top: 100px;
             width: 450px;
             
         }
@@ -52,6 +52,12 @@
         input {
             
             margin: 20px 0px;
+            
+        }
+        
+        #weather {
+            
+            margin-top: 15px;
             
         }
 
