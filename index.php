@@ -1,5 +1,7 @@
 <?php
 
+    $weather = "";
+
     if ($_GET['city']) {
         
         $city = str_replace(" ", "", $_GET['city']);
