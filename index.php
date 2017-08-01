@@ -1,6 +1,7 @@
 <?php
 
     $weather = "";
+    $error = "";
 
     if ($_GET['city']) {
         
@@ -10,7 +11,7 @@
         
         if ($file_headers[0] == 'HTTP/1.1 404 Not Found') {
             
-            $exist = false;
+            $error = "That city could not be found.";
             
         } else {
             
@@ -100,6 +101,10 @@
                 if ($weather) {
                     
                     echo '<div class="alert alert-success" role="alert">'.$weather.'</div>';
+                    
+                } else if ($error) {
+                    
+                    echo '<div class="alert alert-danger" role="alert">'.$error.'</div>';
                     
                 }
             
