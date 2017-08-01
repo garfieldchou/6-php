@@ -3,48 +3,44 @@
     $weather = "";
     $error = "";
     
-    if ( isset( $_GET['city'] ) ) {
-
-        if ($_GET['city']) {
+    if (array_key_exists('city', $_GET)) {
             
-            $city = str_replace(" ", "", $_GET['city']);
+        $city = str_replace(" ", "", $_GET['city']);
             
-            $file_headers = @get_headers("http://www.weather-forecast.com/locations/".$city."/forecasts/latest");
+        $file_headers = @get_headers("http://www.weather-forecast.com/locations/".$city."/forecasts/latest");
             
-            if ($file_headers[0] == 'HTTP/1.1 404 Not Found') {
-                
-                $error = "That city could not be found.";
-                
-            } else {
-                
-                $forcastPage = file_get_contents("http://www.weather-forecast.com/locations/".$city."/forecasts/latest");
-                
-                $pageArray = explode('3 Day Weather Forecast Summary:</b><span class="read-more-small"><span class="read-more-content"> <span class="phrase">', $forcastPage);
-                
-                if (sizeof ($pageArray) > 1) {
-                
-                    $secondPageArray = explode('</span></span></span>', $pageArray[1]);
-                    
-                    if (sizeof ($secondPageArray) > 1 ) {
-                    
-                        $weather = $secondPageArray[0];
-                    
-                    } else {
-                        
-                        $error = "That city could not be found.";
-                        
-                    }
-                    
+        if ($file_headers[0] == 'HTTP/1.1 404 Not Found') {
                
+            $error = "That city could not be found.";
+                
+        } else {
+                
+            $forcastPage = file_get_contents("http://www.weather-forecast.com/locations/".$city."/forecasts/latest");
+                
+            $pageArray = explode('3 Day Weather Forecast Summary:</b><span class="read-more-small"><span class="read-more-content"> <span class="phrase">', $forcastPage);
+                
+            if (sizeof ($pageArray) > 1) {
+                
+                $secondPageArray = explode('</span></span></span>', $pageArray[1]);
+                    
+                if (sizeof ($secondPageArray) > 1 ) {
+                    
+                    $weather = $secondPageArray[0];
+                    
                 } else {
-                    
+                        
                     $error = "That city could not be found.";
-                    
+                        
                 }
-            
+        
+            } else {
+                    
+                $error = "That city could not be found.";
+                    
             }
             
         }
+            
     }
 
 ?>
@@ -108,7 +104,7 @@
         <form>
             <div class="form-group">
                 <label for="city">Enter the name of a city.</label>
-                <input type="text" class="form-control" name="city" id="city" placeholder="Eg. London, Tokyo" value = "<?php if( isset( $_GET['city'] ) ) echo $_GET['city']; ?>">
+                <input type="text" class="form-control" name="city" id="city" placeholder="Eg. London, Tokyo" value = "<?php if( array_key_exists('city', $_GET) ) echo $_GET['city']; ?>">
             </div>
 
             <button type="submit" class="btn btn-primary">Submit</button>
