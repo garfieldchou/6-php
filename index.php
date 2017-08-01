@@ -4,13 +4,23 @@
         
         $city = str_replace(" ", "", $_GET['city']);
         
-        $forcastPage = file_get_contents("http://www.weather-forecast.com/locations/".$city."/forecasts/latest");
+        $file_headers = @get_headers("http://www.weather-forecast.com/locations/".$city."/forecasts/latest");
         
-        $pageArray = explode('3 Day Weather Forecast Summary:</b><span class="read-more-small"><span class="read-more-content"> <span class="phrase">', $forcastPage);
+        if ($file_headers[0] == 'HTTP/1.1 404 Not Found') {
+            
+            $exist = false;
+            
+        } else {
+            
+            $forcastPage = file_get_contents("http://www.weather-forecast.com/locations/".$city."/forecasts/latest");
+            
+            $pageArray = explode('3 Day Weather Forecast Summary:</b><span class="read-more-small"><span class="read-more-content"> <span class="phrase">', $forcastPage);
+            
+            $secondPageArray = explode('</span></span></span>', $pageArray[1]);
+            
+            $weather = $secondPageArray[0];
         
-        $secondPageArray = explode('</span></span></span>', $pageArray[1]);
-        
-        $weather = $secondPageArray[0];
+        }
         
     }
 
